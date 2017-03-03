@@ -118,7 +118,7 @@ public class TTempClient implements java.io.Serializable {
 		this.emailId = emailId;
 	}
 
-	@Column(name = "password", length = 50)
+	@Column(name = "password", length = 60)
 	public String getPassword() {
 		return this.password;
 	}
