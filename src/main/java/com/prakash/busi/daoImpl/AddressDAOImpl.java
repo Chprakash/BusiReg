@@ -24,15 +24,18 @@ public class AddressDAOImpl extends AbstractDao<Long, TAddresses> implements Add
 		return null;
 	}
 	@Override
+	@Transactional
 	public TAddresses saveAddress(TAddresses address) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info("AddressDAOImpl.saveAddress(...)");
+		save(address);
+		return address;
 	}
 	@Override
+	@Transactional
 	public TAddresses updateAddress(TAddresses address) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info("AddressDAOImpl.updateAddress(...)");
+		address.setVersion(0);
+		update(address);
+		return address;
 	}
-
-	
 }

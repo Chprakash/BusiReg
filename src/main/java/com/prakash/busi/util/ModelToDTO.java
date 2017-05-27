@@ -1,13 +1,15 @@
 package com.prakash.busi.util;
 
 import com.prakash.busi.dto.AddressesDTO;
+import com.prakash.busi.dto.RoleDTO;
 import com.prakash.busi.dto.TempClientDTO;
+import com.prakash.busi.model.LRole;
 import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.model.TTempClient;
 
 public class ModelToDTO {
 
-	public static TempClientDTO TTempClientToTempClientDTO(TTempClient tempClient){
+	public static TempClientDTO tTempClientToTempClientDTO(TTempClient tempClient){
 		TempClientDTO tempclientDTO=new TempClientDTO();
 		tempclientDTO.setActive(tempClient.getActive());
 		tempclientDTO.setBirthday(tempClient.getBirthday());
@@ -24,8 +26,7 @@ public class ModelToDTO {
 		return tempclientDTO;
 		
 	}
-	
-	public static AddressesDTO TAddressToAddressDTO(TAddresses address){
+	public static AddressesDTO tAddressToAddressDTO(TAddresses address){
 		AddressesDTO addressDTO=new AddressesDTO();
 		addressDTO.setAddress(address.getAddress());
 		addressDTO.setAddressId(address.getAddressId());
@@ -39,9 +40,18 @@ public class ModelToDTO {
 		addressDTO.setStatus(address.getStatus());
 		addressDTO.setStateid(address.getStateid());
 		addressDTO.setUpdatedby(address.getUpdatedby());
-		addressDTO.setUserId(address.getTUser().getId());
+		if(address.getTUser()!=null)
+			addressDTO.setUserId(address.getTUser().getId());
 		addressDTO.setZipcode(address.getZipcode());
 		return addressDTO;
 		
+	}
+	
+	public static RoleDTO roleToRoleDTO(LRole role)
+	{
+		RoleDTO roleDTO = new RoleDTO();
+		roleDTO.setId(role.getId());
+		roleDTO.setType(role.getType());
+		return roleDTO;
 	}
 }

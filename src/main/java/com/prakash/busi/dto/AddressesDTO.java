@@ -29,10 +29,10 @@ public class AddressesDTO implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long addressId;
 	private Long userId;
-	private long countryid;
-	private long stateid;
-	private long cityid;
-	private long zipcode;
+	private Long countryid;
+	private Long stateid;
+	private Long cityid;
+	private Long zipcode;
 	private String landmark;
 	private String address;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm a z",timezone="IST")
@@ -56,25 +56,25 @@ public class AddressesDTO implements java.io.Serializable {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public long getCountryid() {
+	public Long getCountryid() {
 		return countryid;
 	}
 	public void setCountryid(long countryid) {
 		this.countryid = countryid;
 	}
-	public long getStateid() {
+	public Long getStateid() {
 		return stateid;
 	}
 	public void setStateid(long stateid) {
 		this.stateid = stateid;
 	}
-	public long getCityid() {
+	public Long getCityid() {
 		return cityid;
 	}
 	public void setCityid(long cityid) {
 		this.cityid = cityid;
 	}
-	public long getZipcode() {
+	public Long getZipcode() {
 		return zipcode;
 	}
 	public void setZipcode(long zipcode) {

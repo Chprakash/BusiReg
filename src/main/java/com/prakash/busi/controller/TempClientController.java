@@ -22,16 +22,14 @@ public class TempClientController {
 	
 	@RequestMapping(value = "/tempuser", method = RequestMethod.POST,  consumes="application/json", produces="application/json")
 	public @ResponseBody TempClientDTO registerBusinessTempUser(@RequestBody TempClientDTO tempClientDTO) {
-		tempClientDTO.setActive(0L);
-		tempClientDTO.setCreatedDate(new Date());
-		tempClientDTO.setLastUpdatedDate(new Date());
+
 		return tempClientService.saveTempClient(tempClientDTO);
 	}
 	
-	@RequestMapping(value = "/tempuser", method = RequestMethod.PUT,  consumes="application/json", produces="application/json")
-	public @ResponseBody TempClientDTO updateBusinessTempUser(@RequestBody TempClientDTO tempClientDTO) {
-		tempClientDTO.setActive(1L);
-		tempClientDTO.setLastUpdatedDate(new Date());
+	@RequestMapping(value = "/tempuser/{id}", method = RequestMethod.PUT,  consumes="application/json", produces="application/json")
+	public @ResponseBody TempClientDTO updateBusinessTempUser(@PathVariable("id")Long id,@RequestBody TempClientDTO tempClientDTO) {
+		
+		tempClientDTO.setId(id);
 		return tempClientService.updateTempClient(tempClientDTO);
 	}
 

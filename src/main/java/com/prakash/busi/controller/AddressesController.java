@@ -19,20 +19,19 @@ public class AddressesController {
 	@Autowired
 	private AddressesService addressService;
 	
-	@RequestMapping(value = "/Address", method = RequestMethod.POST,  consumes="application/json", produces="application/json")
+	@RequestMapping(value = "/address", method = RequestMethod.POST,  consumes="application/json", produces="application/json")
 	public @ResponseBody AddressesDTO craeteNewAddress(@RequestBody AddressesDTO addressDTO) {
-		addressDTO.setCreateddate(new Date());
-		addressDTO.setLastupdateddate(new Date());
+		
 		return addressService.saveAddress(addressDTO);
 	}
 	
-/*	@RequestMapping(value = "/Address", method = RequestMethod.PUT,  consumes="application/json", produces="application/json")
-	public @ResponseBody AddressesDTO updateBusinessTempUser(@RequestBody AddressesDTO tempClientDTO) {
-		tempClientDTO.setLastUpdatedDate(new Date());
-		return tempClientService.updateTempClient(tempClientDTO);
-	}*/
+	@RequestMapping(value = "/address/{id}", method = RequestMethod.PUT,  consumes="application/json", produces="application/json")
+	public @ResponseBody AddressesDTO updateBusinessTempUser(@PathVariable("id")Long id,@RequestBody AddressesDTO addressDTO) {
+		addressDTO.setAddressId(id);
+		return addressService.updateAddress(addressDTO);
+	}
 
-	@RequestMapping(value="/Address/{id}", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/address/{id}", method = RequestMethod.GET, produces="application/json")
 	public AddressesDTO getAddress(@PathVariable("id")Long id) {
 		return addressService.getAddressByID(id);
 	}

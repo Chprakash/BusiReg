@@ -4,24 +4,25 @@ import com.prakash.busi.dto.AddressesDTO;
 import com.prakash.busi.dto.TempClientDTO;
 import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.model.TTempClient;
+import com.prakash.busi.model.TUser;
 
 public class DTOToModel {
-	public static AddressesDTO addressDTOToAddresss(TAddresses address){
-		AddressesDTO addressDTO=new AddressesDTO();
-		addressDTO.setAddress(address.getAddress());
-		addressDTO.setAddressId(address.getAddressId());
-		addressDTO.setCityid(address.getCityid());
-		addressDTO.setCountryid(address.getCountryid());
-		addressDTO.setCreatedby(address.getCreatedby());
-		addressDTO.setCreateddate(address.getCreateddate());
-		addressDTO.setLandmark(address.getLandmark());
-		addressDTO.setLastupdateddate(address.getLastupdateddate());
-		addressDTO.setStateid(address.getStateid());
-		addressDTO.setStatus(address.getStatus());
-		addressDTO.setUpdatedby(address.getUpdatedby());
-		addressDTO.setZipcode(address.getZipcode());
-		addressDTO.setUserId(address.getTUser().getId());
-		return addressDTO;
+	
+	public static TAddresses addressDTOToAddresss(AddressesDTO addressDTO){
+		TAddresses address=new TAddresses();
+		address.setAddress(addressDTO.getAddress());
+		address.setAddressId(addressDTO.getAddressId());
+		address.setCityid(addressDTO.getCityid());
+		address.setCountryid(addressDTO.getCountryid());
+		address.setCreatedby(addressDTO.getCreatedby());
+		address.setCreateddate(addressDTO.getCreateddate());
+		address.setLandmark(addressDTO.getLandmark());
+		address.setLastupdateddate(addressDTO.getLastupdateddate());
+		address.setStateid(addressDTO.getStateid());
+		address.setStatus(addressDTO.getStatus());
+		address.setUpdatedby(addressDTO.getUpdatedby());
+		address.setZipcode(addressDTO.getZipcode());
+		return address;
 	}
 	
 	public static TTempClient TempClientDTOToTempClient(TempClientDTO tempClientDTO){
@@ -40,7 +41,24 @@ public class DTOToModel {
 		tempclient.setPassword(tempClientDTO.getPassword());
 		tempclient.setLastUpdatedDate(tempClientDTO.getLastUpdatedDate());
 		return tempclient;
+	}
+	
+	public static TUser TempClientDTOToTuser(TempClientDTO tempClientDTO){
+		TUser user=new TUser();
+		user.setFirstName(tempClientDTO.getFirstName());
+		user.setMiddleName(tempClientDTO.getMiddleName());
+		user.setLastName(tempClientDTO.getLastName());
+		user.setEmailId(tempClientDTO.getEmailId());
+		user.setPassword(tempClientDTO.getPassword());
+		user.setCreatedBy(tempClientDTO.getCreatedBy());
+		user.setCreatedDate(tempClientDTO.getCreatedDate());
+		user.setDob(tempClientDTO.getBirthday());
+		user.setLastUpdatedDate(tempClientDTO.getLastUpdatedDate());
+		user.setActive(false);
+		user.setLastUpdatedDate(tempClientDTO.getCreatedDate());
+		user.setUpdatedBy(tempClientDTO.getCreatedBy());
+		user.setLocked(false);
+		return user;
 		
 	}
-
 }

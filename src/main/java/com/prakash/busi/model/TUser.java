@@ -1,17 +1,16 @@
 package com.prakash.busi.model;
 // default package
-// Generated Feb 26, 2017 8:38:09 PM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 30, 2017 9:18:26 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,6 +26,10 @@ public class TUser implements java.io.Serializable {
 
 	private Long id;
 	private Integer version;
+	private LRole LRole;
+	private String firstName;
+	private String middleName;
+	private String lastName;
 	private String emailId;
 	private String password;
 	private Date createdDate;
@@ -37,25 +40,26 @@ public class TUser implements java.io.Serializable {
 	private String previousPassword;
 	private Boolean locked;
 	private Date lastPasswordChangedOn;
-	private long roleId;
 	private Date dob;
-	private Set<TAddresses> TAddresseses = new HashSet<TAddresses>(0);
-	private Set<TBusinesssrc> TBusinesssrcs = new HashSet<TBusinesssrc>(0);
 
 	public TUser() {
 	}
 
-	public TUser(String emailId, String password, long roleId) {
+	public TUser(LRole LRole, String emailId, String password) {
+		this.LRole = LRole;
 		this.emailId = emailId;
 		this.password = password;
-		this.roleId = roleId;
 	}
 
-	public TUser(String emailId, String password, Date createdDate,
+	public TUser(LRole LRole, String firstName, String middleName,
+			String lastName, String emailId, String password, Date createdDate,
 			Date lastUpdatedDate, Long createdBy, Long updatedBy,
 			Boolean active, String previousPassword, Boolean locked,
-			Date lastPasswordChangedOn, long roleId, Date dob,
-			Set<TAddresses> TAddresseses, Set<TBusinesssrc> TBusinesssrcs) {
+			Date lastPasswordChangedOn, Date dob) {
+		this.LRole = LRole;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
 		this.emailId = emailId;
 		this.password = password;
 		this.createdDate = createdDate;
@@ -66,10 +70,7 @@ public class TUser implements java.io.Serializable {
 		this.previousPassword = previousPassword;
 		this.locked = locked;
 		this.lastPasswordChangedOn = lastPasswordChangedOn;
-		this.roleId = roleId;
 		this.dob = dob;
-		this.TAddresseses = TAddresseses;
-		this.TBusinesssrcs = TBusinesssrcs;
 	}
 
 	@Id
@@ -91,6 +92,43 @@ public class TUser implements java.io.Serializable {
 
 	public void setVersion(Integer version) {
 		this.version = version;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "role_id", nullable = false)
+	public LRole getLRole() {
+		return this.LRole;
+	}
+
+	public void setLRole(LRole LRole) {
+		this.LRole = LRole;
+	}
+
+	@Column(name = "first_name", length = 50)
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Column(name = "middle_name", length = 50)
+	public String getMiddleName() {
+		return this.middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	@Column(name = "last_name", length = 50)
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	@Column(name = "email_id", unique = true, nullable = false, length = 50)
@@ -186,15 +224,6 @@ public class TUser implements java.io.Serializable {
 		this.lastPasswordChangedOn = lastPasswordChangedOn;
 	}
 
-	@Column(name = "role_id", nullable = false)
-	public long getRoleId() {
-		return this.roleId;
-	}
-
-	public void setRoleId(long roleId) {
-		this.roleId = roleId;
-	}
-
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dob", length = 19)
 	public Date getDob() {
@@ -203,24 +232,6 @@ public class TUser implements java.io.Serializable {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TUser")
-	public Set<TAddresses> getTAddresseses() {
-		return this.TAddresseses;
-	}
-
-	public void setTAddresseses(Set<TAddresses> TAddresseses) {
-		this.TAddresseses = TAddresseses;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TUser")
-	public Set<TBusinesssrc> getTBusinesssrcs() {
-		return this.TBusinesssrcs;
-	}
-
-	public void setTBusinesssrcs(Set<TBusinesssrc> TBusinesssrcs) {
-		this.TBusinesssrcs = TBusinesssrcs;
 	}
 
 }

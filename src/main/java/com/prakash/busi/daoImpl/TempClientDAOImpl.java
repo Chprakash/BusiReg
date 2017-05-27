@@ -32,7 +32,7 @@ public class TempClientDAOImpl extends AbstractDao<Long, TTempClient> implements
 	@Override
 	@Transactional
 	public TTempClient saveTempClient(TTempClient tempClient) {
-		logger.info("TempClientDAOImpl.saveOrUpdateTempClient(...)");
+		logger.info("TempClientDAOImpl.saveTempClient(...)");
 		tempClient.setPassword(passwordEncoder.encode(tempClient.getPassword()));
 		save(tempClient);
 		return tempClient;
