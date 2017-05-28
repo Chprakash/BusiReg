@@ -1,7 +1,9 @@
 package com.prakash.busi.util;
 
 import com.prakash.busi.dto.AddressesDTO;
+import com.prakash.busi.dto.RoleDTO;
 import com.prakash.busi.dto.TempClientDTO;
+import com.prakash.busi.model.LRole;
 import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.model.TTempClient;
 import com.prakash.busi.model.TUser;
@@ -59,6 +61,12 @@ public class DTOToModel {
 		user.setUpdatedBy(tempClientDTO.getCreatedBy());
 		user.setLocked(false);
 		return user;
-		
+	}
+	
+	public static LRole RoleDTOToLRole(RoleDTO roleDTO){
+		LRole lRole= new LRole();
+		lRole.setId(roleDTO.getId());
+		lRole.setType(roleDTO.getType());
+		return lRole;
 	}
 }

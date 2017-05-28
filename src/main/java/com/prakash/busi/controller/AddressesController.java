@@ -21,12 +21,11 @@ public class AddressesController {
 	
 	@RequestMapping(value = "/address", method = RequestMethod.POST,  consumes="application/json", produces="application/json")
 	public @ResponseBody AddressesDTO craeteNewAddress(@RequestBody AddressesDTO addressDTO) {
-		
 		return addressService.saveAddress(addressDTO);
 	}
 	
 	@RequestMapping(value = "/address/{id}", method = RequestMethod.PUT,  consumes="application/json", produces="application/json")
-	public @ResponseBody AddressesDTO updateBusinessTempUser(@PathVariable("id")Long id,@RequestBody AddressesDTO addressDTO) {
+	public @ResponseBody AddressesDTO updateAddress(@PathVariable("id")Long id,@RequestBody AddressesDTO addressDTO) {
 		addressDTO.setAddressId(id);
 		return addressService.updateAddress(addressDTO);
 	}
