@@ -10,11 +10,11 @@ import com.prakash.busi.dao.AddressDAO;
 import com.prakash.busi.model.TAddresses;
 
 @Repository
+@Transactional
 public class AddressDAOImpl extends AbstractDao<Long, TAddresses> implements AddressDAO{
 
-	static final Logger logger = LoggerFactory.getLogger(TempClientDAOImpl.class);
+	static final Logger logger = LoggerFactory.getLogger(AddressDAOImpl.class);
 	@Override
-	@Transactional
 	public TAddresses getAddressByID(Long id) {
 		logger.info("AddressDAOImpl.getAddressByID(...)");
 		TAddresses address = getByKey(id);

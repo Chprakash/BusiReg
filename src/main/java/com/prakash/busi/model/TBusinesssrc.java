@@ -1,6 +1,6 @@
 package com.prakash.busi.model;
 // default package
-// Generated Feb 26, 2017 8:38:09 PM by Hibernate Tools 3.4.0.CR1
+// Generated Jun 9, 2017 8:36:26 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -29,7 +29,7 @@ public class TBusinesssrc implements java.io.Serializable {
 	private Long busiSrcId;
 	private Integer version;
 	private TUser TUser;
-	private Long busiTypeid;
+	private LBusinesstype LBusinesstype;
 	private String busiName;
 	private Date createddate;
 	private Date lastupdateddate;
@@ -40,6 +40,8 @@ public class TBusinesssrc implements java.io.Serializable {
 	private String adharCardNo;
 	private Set<TBusinesscontact> TBusinesscontacts = new HashSet<TBusinesscontact>(
 			0);
+	private Set<TApplogincredentials> TApplogincredentialses = new HashSet<TApplogincredentials>(
+			0);
 
 	public TBusinesssrc() {
 	}
@@ -49,12 +51,13 @@ public class TBusinesssrc implements java.io.Serializable {
 		this.lastupdateddate = lastupdateddate;
 	}
 
-	public TBusinesssrc(TUser TUser, Long busiTypeid, String busiName,
-			Date createddate, Date lastupdateddate, Long createdby,
-			Long updatedby, Long acstatus, String pancardNo,
-			String adharCardNo, Set<TBusinesscontact> TBusinesscontacts) {
+	public TBusinesssrc(TUser TUser, LBusinesstype LBusinesstype,
+			String busiName, Date createddate, Date lastupdateddate,
+			Long createdby, Long updatedby, Long acstatus, String pancardNo,
+			String adharCardNo, Set<TBusinesscontact> TBusinesscontacts,
+			Set<TApplogincredentials> TApplogincredentialses) {
 		this.TUser = TUser;
-		this.busiTypeid = busiTypeid;
+		this.LBusinesstype = LBusinesstype;
 		this.busiName = busiName;
 		this.createddate = createddate;
 		this.lastupdateddate = lastupdateddate;
@@ -64,6 +67,7 @@ public class TBusinesssrc implements java.io.Serializable {
 		this.pancardNo = pancardNo;
 		this.adharCardNo = adharCardNo;
 		this.TBusinesscontacts = TBusinesscontacts;
+		this.TApplogincredentialses = TApplogincredentialses;
 	}
 
 	@Id
@@ -97,13 +101,14 @@ public class TBusinesssrc implements java.io.Serializable {
 		this.TUser = TUser;
 	}
 
-	@Column(name = "busiTypeid")
-	public Long getBusiTypeid() {
-		return this.busiTypeid;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "busiTypeid")
+	public LBusinesstype getLBusinesstype() {
+		return this.LBusinesstype;
 	}
 
-	public void setBusiTypeid(Long busiTypeid) {
-		this.busiTypeid = busiTypeid;
+	public void setLBusinesstype(LBusinesstype LBusinesstype) {
+		this.LBusinesstype = LBusinesstype;
 	}
 
 	@Column(name = "BusiName", length = 200)
@@ -187,6 +192,16 @@ public class TBusinesssrc implements java.io.Serializable {
 
 	public void setTBusinesscontacts(Set<TBusinesscontact> TBusinesscontacts) {
 		this.TBusinesscontacts = TBusinesscontacts;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TBusinesssrc")
+	public Set<TApplogincredentials> getTApplogincredentialses() {
+		return this.TApplogincredentialses;
+	}
+
+	public void setTApplogincredentialses(
+			Set<TApplogincredentials> TApplogincredentialses) {
+		this.TApplogincredentialses = TApplogincredentialses;
 	}
 
 }

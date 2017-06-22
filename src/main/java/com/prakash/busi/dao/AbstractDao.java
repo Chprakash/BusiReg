@@ -2,8 +2,7 @@ package com.prakash.busi.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-
-import javassist.expr.Instanceof;
+import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -28,10 +27,9 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 
 	@SuppressWarnings("unchecked")
 	public T getByKey(PK key) {
-		System.out.println(persistentClass+""+key);
 		return (T) getSession().get(persistentClass, key);
 	}
-
+	
 	public void persist(T entity) {
 		getSession().persist(entity);
 	}

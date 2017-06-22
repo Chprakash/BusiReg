@@ -32,6 +32,7 @@ public class AddressesController {
 
 	@RequestMapping(value="/address/{id}", method = RequestMethod.GET, produces="application/json")
 	public AddressesDTO getAddress(@PathVariable("id")Long id) {
+		
 		return addressService.getAddressByID(id);
 	}
 }

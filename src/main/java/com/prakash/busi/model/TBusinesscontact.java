@@ -1,6 +1,6 @@
 package com.prakash.busi.model;
 // default package
-// Generated Feb 26, 2017 8:38:09 PM by Hibernate Tools 3.4.0.CR1
+// Generated Jun 9, 2017 8:36:26 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -26,8 +26,8 @@ public class TBusinesscontact implements java.io.Serializable {
 	private Long contactid;
 	private Integer version;
 	private TBusinesssrc TBusinesssrc;
+	private LCountry LCountry;
 	private Long phoneNo;
-	private long countryCode;
 	private long mobileNo1;
 	private Long mobileNo2;
 	private Long landLineNo;
@@ -45,10 +45,10 @@ public class TBusinesscontact implements java.io.Serializable {
 	public TBusinesscontact() {
 	}
 
-	public TBusinesscontact(long countryCode, long mobileNo1, String emailId1,
+	public TBusinesscontact(LCountry LCountry, long mobileNo1, String emailId1,
 			Date createdDate, Date lastUpdateddate, long createdBy,
 			long updatedBy, String contactPersonLName) {
-		this.countryCode = countryCode;
+		this.LCountry = LCountry;
 		this.mobileNo1 = mobileNo1;
 		this.emailId1 = emailId1;
 		this.createdDate = createdDate;
@@ -58,15 +58,15 @@ public class TBusinesscontact implements java.io.Serializable {
 		this.contactPersonLName = contactPersonLName;
 	}
 
-	public TBusinesscontact(TBusinesssrc TBusinesssrc, Long phoneNo,
-			long countryCode, long mobileNo1, Long mobileNo2, Long landLineNo,
+	public TBusinesscontact(TBusinesssrc TBusinesssrc, LCountry LCountry,
+			Long phoneNo, long mobileNo1, Long mobileNo2, Long landLineNo,
 			String emailId1, String emailId2, Date createdDate,
 			Date lastUpdateddate, long createdBy, long updatedBy,
 			Long areaCode, String contactPersonFName,
 			String contactPersonMName, String contactPersonLName) {
 		this.TBusinesssrc = TBusinesssrc;
+		this.LCountry = LCountry;
 		this.phoneNo = phoneNo;
-		this.countryCode = countryCode;
 		this.mobileNo1 = mobileNo1;
 		this.mobileNo2 = mobileNo2;
 		this.landLineNo = landLineNo;
@@ -113,6 +113,16 @@ public class TBusinesscontact implements java.io.Serializable {
 		this.TBusinesssrc = TBusinesssrc;
 	}
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CountryCode", nullable = false)
+	public LCountry getLCountry() {
+		return this.LCountry;
+	}
+
+	public void setLCountry(LCountry LCountry) {
+		this.LCountry = LCountry;
+	}
+
 	@Column(name = "PhoneNo")
 	public Long getPhoneNo() {
 		return this.phoneNo;
@@ -120,15 +130,6 @@ public class TBusinesscontact implements java.io.Serializable {
 
 	public void setPhoneNo(Long phoneNo) {
 		this.phoneNo = phoneNo;
-	}
-
-	@Column(name = "CountryCode", nullable = false)
-	public long getCountryCode() {
-		return this.countryCode;
-	}
-
-	public void setCountryCode(long countryCode) {
-		this.countryCode = countryCode;
 	}
 
 	@Column(name = "MobileNo1", nullable = false)

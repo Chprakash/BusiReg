@@ -2,7 +2,24 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-
-	<table-filter match-catalog="business" match-name="t_user" />
+	<table-filter match-name="l_area" match-catalog="business"></table-filter>
+	<table-filter match-name="l_brand" match-catalog="business"></table-filter>
+	<table-filter match-name="l_businesstype"
+		match-catalog="business">
+	</table-filter>
+	<table-filter match-name="l_category" match-catalog="business"></table-filter>
+	<table-filter match-name="l_city" match-catalog="business"></table-filter>
+	<table-filter match-name="l_country" match-catalog="business"></table-filter>
 	<table-filter match-name="l_role" match-catalog="business"></table-filter>
+	<table-filter match-name="l_state" match-catalog="business"></table-filter>
+	<table-filter match-name="l_zipcode" match-catalog="business"></table-filter>
+	<table-filter match-name="t_addresses" match-catalog="business"></table-filter>
+	<table-filter match-name="t_applogincredentials"
+		match-catalog="business">
+	</table-filter>
+	<table-filter match-name="t_businesscontact"
+		match-catalog="business">
+	</table-filter>
+	<table-filter match-name="t_businesssrc" match-catalog="business"></table-filter>
+	<table-filter match-name="t_user" match-catalog="business"></table-filter>
 </hibernate-reverse-engineering>

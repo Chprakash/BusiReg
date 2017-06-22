@@ -4,21 +4,6 @@ package com.prakash.busi.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Version;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class AddressesDTO implements java.io.Serializable {
@@ -28,11 +13,12 @@ public class AddressesDTO implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long addressId;
+	private Long cityId;
+	private Long stateId;
 	private Long userId;
-	private Long countryid;
-	private Long stateid;
-	private Long cityid;
-	private Long zipcode;
+	private Long areaId;
+	private Long zipcodeId;
+	private Long countryId;
 	private String landmark;
 	private String address;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm a z",timezone="IST")
@@ -49,36 +35,41 @@ public class AddressesDTO implements java.io.Serializable {
 	public void setAddressId(Long addressId) {
 		this.addressId = addressId;
 	}
-	
+	public Long getCityId() {
+		return cityId;
+	}
+	public void setCityId(Long cityId) {
+		this.cityId = cityId;
+	}
+	public Long getStateId() {
+		return stateId;
+	}
+	public void setStateId(Long stateId) {
+		this.stateId = stateId;
+	}
 	public Long getUserId() {
 		return userId;
 	}
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public Long getCountryid() {
-		return countryid;
+	public Long getAreaId() {
+		return areaId;
 	}
-	public void setCountryid(long countryid) {
-		this.countryid = countryid;
+	public void setAreaId(Long areaId) {
+		this.areaId = areaId;
 	}
-	public Long getStateid() {
-		return stateid;
+	public Long getZipcodeId() {
+		return zipcodeId;
 	}
-	public void setStateid(long stateid) {
-		this.stateid = stateid;
+	public void setZipcodeId(Long zipcodeId) {
+		this.zipcodeId = zipcodeId;
 	}
-	public Long getCityid() {
-		return cityid;
+	public Long getCountryId() {
+		return countryId;
 	}
-	public void setCityid(long cityid) {
-		this.cityid = cityid;
-	}
-	public Long getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(long zipcode) {
-		this.zipcode = zipcode;
+	public void setCountryId(Long countryId) {
+		this.countryId = countryId;
 	}
 	public String getLandmark() {
 		return landmark;
@@ -122,6 +113,5 @@ public class AddressesDTO implements java.io.Serializable {
 	public void setStatus(Long status) {
 		this.status = status;
 	}
-	
 	
 }

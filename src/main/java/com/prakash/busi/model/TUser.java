@@ -1,8 +1,10 @@
 package com.prakash.busi.model;
 // default package
-// Generated Mar 30, 2017 9:18:26 AM by Hibernate Tools 3.4.0.CR1
+// Generated Jun 9, 2017 8:36:26 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,6 +44,8 @@ public class TUser implements java.io.Serializable {
 	private Boolean locked;
 	private Date lastPasswordChangedOn;
 	private Date dob;
+	private Set<TAddresses> TAddresseses = new HashSet<TAddresses>(0);
+	private Set<TBusinesssrc> TBusinesssrcs = new HashSet<TBusinesssrc>(0);
 
 	public TUser() {
 	}
@@ -55,7 +60,8 @@ public class TUser implements java.io.Serializable {
 			String lastName, String emailId, String password, Date createdDate,
 			Date lastUpdatedDate, Long createdBy, Long updatedBy,
 			Boolean active, String previousPassword, Boolean locked,
-			Date lastPasswordChangedOn, Date dob) {
+			Date lastPasswordChangedOn, Date dob, Set<TAddresses> TAddresseses,
+			Set<TBusinesssrc> TBusinesssrcs) {
 		this.LRole = LRole;
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -71,6 +77,8 @@ public class TUser implements java.io.Serializable {
 		this.locked = locked;
 		this.lastPasswordChangedOn = lastPasswordChangedOn;
 		this.dob = dob;
+		this.TAddresseses = TAddresseses;
+		this.TBusinesssrcs = TBusinesssrcs;
 	}
 
 	@Id
@@ -232,6 +240,24 @@ public class TUser implements java.io.Serializable {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TUser")
+	public Set<TAddresses> getTAddresseses() {
+		return this.TAddresseses;
+	}
+
+	public void setTAddresseses(Set<TAddresses> TAddresseses) {
+		this.TAddresseses = TAddresseses;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TUser")
+	public Set<TBusinesssrc> getTBusinesssrcs() {
+		return this.TBusinesssrcs;
+	}
+
+	public void setTBusinesssrcs(Set<TBusinesssrc> TBusinesssrcs) {
+		this.TBusinesssrcs = TBusinesssrcs;
 	}
 
 }

@@ -1,0 +1,10 @@
+package com.prakash.busi.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/business/registration")
+public class CityController {
+
+}

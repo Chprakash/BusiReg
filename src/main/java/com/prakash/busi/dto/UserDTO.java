@@ -23,7 +23,7 @@ public class UserDTO implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final Long serialVersionUID = 1L;
 	private Long id;
 	private String emailId;
 	private String password;
@@ -35,7 +35,7 @@ public class UserDTO implements java.io.Serializable {
 	private String previousPassword;
 	private Boolean locked;
 	private Date lastPasswordChangedOn;
-	private long roleId;
+	private Long roleId;
 	private Date dob;
 	private Set<AddressesDTO> addresseses = new HashSet<AddressesDTO>(0);
 	private Set<BusinesssrcDTO> businesssrcs = new HashSet<BusinesssrcDTO>(0);
@@ -106,10 +106,10 @@ public class UserDTO implements java.io.Serializable {
 	public void setLastPasswordChangedOn(Date lastPasswordChangedOn) {
 		this.lastPasswordChangedOn = lastPasswordChangedOn;
 	}
-	public long getRoleId() {
+	public Long getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(long roleId) {
+	public void setRoleId(Long roleId) {
 		this.roleId = roleId;
 	}
 	public Date getDob() {

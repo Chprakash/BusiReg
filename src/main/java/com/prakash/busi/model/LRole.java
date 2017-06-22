@@ -1,6 +1,6 @@
 package com.prakash.busi.model;
 // default package
-// Generated Mar 30, 2017 9:18:26 AM by Hibernate Tools 3.4.0.CR1
+// Generated Jun 9, 2017 8:36:26 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;

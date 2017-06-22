@@ -8,7 +8,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.prakash.busi.dao.AddressDAO;
+import com.prakash.busi.dao.AreaDAO;
+import com.prakash.busi.dao.CityDAO;
+import com.prakash.busi.dao.CountryDAO;
+import com.prakash.busi.dao.StateDAO;
 import com.prakash.busi.dao.UserDAO;
+import com.prakash.busi.dao.ZipDAO;
 import com.prakash.busi.dto.AddressesDTO;
 import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.service.AddressesService;
@@ -22,6 +27,16 @@ public class AddressesServiceImpl implements AddressesService{
 	private AddressDAO addressDAO;
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private CountryDAO countryDAO;
+	@Autowired
+	private StateDAO stateDAO;
+	@Autowired
+	private CityDAO cityDAO;
+	@Autowired
+	private ZipDAO zipDAO;
+	@Autowired
+	private AreaDAO areaDAO;
 	
 	@Override
 	public AddressesDTO getAddressByID(Long id) {
@@ -33,7 +48,7 @@ public class AddressesServiceImpl implements AddressesService{
 	public AddressesDTO saveAddress(AddressesDTO addressDTO) {
 		addressDTO.setCreateddate(new Date());
 		addressDTO.setLastupdateddate(new Date());
-		TAddresses address=DTOToModel.addressDTOToAddresss(addressDTO);
+		TAddresses address=getConvertedToAddresss(addressDTO, new TAddresses());
 		address.setTUser(userDAO.getUserByID(addressDTO.getUserId()));
 		return ModelToDTO.tAddressToAddressDTO(addressDAO.saveAddress(address));
 	}
@@ -43,43 +58,55 @@ public class AddressesServiceImpl implements AddressesService{
 	public AddressesDTO updateAddress(AddressesDTO addressDTO) {
 		addressDTO.setLastupdateddate(new Date());
 		TAddresses savedAddress = addressDAO.getAddressByID(addressDTO.getAddressId());
-		
+		savedAddress =getConvertedToAddresss(addressDTO,savedAddress);
+		return ModelToDTO.tAddressToAddressDTO(addressDAO.updateAddress(savedAddress));
+	}
+	
+	public TAddresses getConvertedToAddresss(AddressesDTO addressDTO, TAddresses tAddress){
+		TAddresses address=tAddress;
 		if(StringUtils.isNotBlank(addressDTO.getAddress())){
-			savedAddress.setAddress(addressDTO.getAddress());
+			address.setAddress(addressDTO.getAddress());
 		}
 		if(StringUtils.isNotBlank(addressDTO.getLandmark())){
-			savedAddress.setLandmark(addressDTO.getLandmark());
+			address.setLandmark(addressDTO.getLandmark());
 		}
 		if(null!=addressDTO.getAddressId()){
-			savedAddress.setAddressId(addressDTO.getAddressId());
+			address.setAddressId(addressDTO.getAddressId());
 		}
-		if(null!=addressDTO.getCityid()){
-			savedAddress.setCityid(addressDTO.getCityid());
+		if(null!=addressDTO.getCityId()){
+			address.setLCity(cityDAO.getCityByID(addressDTO.getCityId()));
 		}
-		if(null!=addressDTO.getCountryid()){
-			savedAddress.setCityid(addressDTO.getCountryid());
+		if(null!=addressDTO.getCountryId()){
+			address.setLCountry(countryDAO.getCountryByID(addressDTO.getCountryId()));
 		}
 		if(null!=addressDTO.getCreatedby()){
-			savedAddress.setCityid(addressDTO.getCreatedby());
+			address.setCreatedby(addressDTO.getCreatedby());
 		}
-		if(null!=addressDTO.getStateid()){
-			savedAddress.setCityid(addressDTO.getStateid());
+		if(null!=addressDTO.getCreateddate()){
+			address.setCreateddate(addressDTO.getCreateddate());
+		}
+		if(null!=addressDTO.getStateId()){
+			address.setLState(stateDAO.getStateByID(addressDTO.getStateId()));
 		}
 		if(null!=addressDTO.getStatus()){
-			savedAddress.setCityid(addressDTO.getStatus());
+			address.setStatus(addressDTO.getStatus());
 		}
 		if(null!=addressDTO.getUpdatedby()){
-			savedAddress.setUpdatedby(addressDTO.getUpdatedby());
+			address.setUpdatedby(addressDTO.getUpdatedby());
 		}
 		if(null!=addressDTO.getUserId()){
-			savedAddress.setTUser(userDAO.getUserByID(addressDTO.getUserId()));
+			address.setTUser(userDAO.getUserByID(addressDTO.getUserId()));
 		}
-		if(null!=addressDTO.getZipcode()){
-			savedAddress.setZipcode(addressDTO.getZipcode());
+		if(null!=addressDTO.getZipcodeId()){
+			address.setLZipcode(zipDAO.getZipByID(addressDTO.getZipcodeId()));
 		}
-		savedAddress.setLastupdateddate(new Date());
+		if(null!=addressDTO.getAreaId()){
+			address.setLArea(areaDAO.getAreaByID(addressDTO.getAreaId()));
+		}
 		
-		return ModelToDTO.tAddressToAddressDTO(addressDAO.updateAddress(savedAddress));
+		address.setLastupdateddate(new Date());
+		return address;
+	
 	}
 
 }

@@ -3,38 +3,30 @@ package com.prakash.busi.dto;
 // Generated Feb 18, 2017 7:48:04 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class BusinesscontactDTO implements java.io.Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final Long serialVersionUID = 1L;
 	private Long contactid;
-	private BusinesssrcDTO businesssrc;
+	private Long businesssrcID;
 	private Long phoneNo;
-	private long countryCode;
-	private long mobileNo1;
+	private Long countryCode;
+	private Long mobileNo1;
 	private Long mobileNo2;
 	private Long landLineNo;
 	private String emailId1;
 	private String emailId2;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm a z",timezone="IST")
 	private Date createdDate;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm a z",timezone="IST")
 	private Date lastUpdateddate;
-	private long createdBy;
-	private long updatedBy;
+	private Long createdBy;
+	private Long updatedBy;
 	private Long areaCode;
 	private String contactPersonFName;
 	private String contactPersonMName;
@@ -46,11 +38,12 @@ public class BusinesscontactDTO implements java.io.Serializable {
 	public void setContactid(Long contactid) {
 		this.contactid = contactid;
 	}
-	public BusinesssrcDTO getBusinesssrc() {
-		return businesssrc;
+	
+	public Long getBusinesssrcID() {
+		return businesssrcID;
 	}
-	public void setBusinesssrc(BusinesssrcDTO businesssrc) {
-		this.businesssrc = businesssrc;
+	public void setBusinesssrcID(Long businesssrcID) {
+		this.businesssrcID = businesssrcID;
 	}
 	public Long getPhoneNo() {
 		return phoneNo;
@@ -58,16 +51,16 @@ public class BusinesscontactDTO implements java.io.Serializable {
 	public void setPhoneNo(Long phoneNo) {
 		this.phoneNo = phoneNo;
 	}
-	public long getCountryCode() {
+	public Long getCountryCode() {
 		return countryCode;
 	}
-	public void setCountryCode(long countryCode) {
+	public void setCountryCode(Long countryCode) {
 		this.countryCode = countryCode;
 	}
-	public long getMobileNo1() {
+	public Long getMobileNo1() {
 		return mobileNo1;
 	}
-	public void setMobileNo1(long mobileNo1) {
+	public void setMobileNo1(Long mobileNo1) {
 		this.mobileNo1 = mobileNo1;
 	}
 	public Long getMobileNo2() {
@@ -106,16 +99,16 @@ public class BusinesscontactDTO implements java.io.Serializable {
 	public void setLastUpdateddate(Date lastUpdateddate) {
 		this.lastUpdateddate = lastUpdateddate;
 	}
-	public long getCreatedBy() {
+	public Long getCreatedBy() {
 		return createdBy;
 	}
-	public void setCreatedBy(long createdBy) {
+	public void setCreatedBy(Long createdBy) {
 		this.createdBy = createdBy;
 	}
-	public long getUpdatedBy() {
+	public Long getUpdatedBy() {
 		return updatedBy;
 	}
-	public void setUpdatedBy(long updatedBy) {
+	public void setUpdatedBy(Long updatedBy) {
 		this.updatedBy = updatedBy;
 	}
 	public Long getAreaCode() {
