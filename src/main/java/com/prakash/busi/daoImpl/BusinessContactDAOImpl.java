@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.prakash.busi.dao.AbstractDao;
-import com.prakash.busi.dao.AddressDAO;
 import com.prakash.busi.dao.BusinessContactDAO;
-import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.model.TBusinesscontact;
 
 @Repository

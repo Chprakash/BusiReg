@@ -24,6 +24,10 @@ import javax.persistence.Version;
 @Table(name = "l_businesstype", catalog = "business")
 public class LBusinesstype implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long busitypeid;
 	private Integer version;
 	private Date createddate;

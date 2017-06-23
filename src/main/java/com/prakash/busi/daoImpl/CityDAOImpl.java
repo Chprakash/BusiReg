@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -40,9 +41,13 @@ public class CityDAOImpl extends AbstractDao<Long, LCity> implements CityDAO{
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<LCity> getAllCitiesByStateID(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info("CityDAOImpl.getAllCitiesByStateID(...)");
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq("LState.stateId", id));
+		List<LCity> cityList = (List<LCity>) criteria.list();
+		return cityList;
 	}
 
 }

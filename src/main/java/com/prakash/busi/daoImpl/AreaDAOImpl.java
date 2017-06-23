@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.prakash.busi.dao.AbstractDao;
 import com.prakash.busi.dao.AreaDAO;
-import com.prakash.busi.dao.ZipDAO;
 import com.prakash.busi.model.LArea;
 import com.prakash.busi.model.LZipcode;
 
@@ -48,10 +48,14 @@ public class AreaDAOImpl extends AbstractDao<Long, LArea> implements AreaDAO{
 		return areaList;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<LArea> getAllAreaByZipId() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<LArea> getAllAreaByZipId(Long id) {
+		logger.info("AreaDAOImpl.getAllAreaByZipId(...)");
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq("LZipcode.zipid", id));
+		List<LArea> aeraList = (List<LArea>) criteria.list();
+		return aeraList;
 	}
 
 }

@@ -3,7 +3,6 @@ package com.prakash.busi.service;
 import java.util.List;
 
 import com.prakash.busi.dto.RoleDTO;
-import com.prakash.busi.model.LRole;
 
 
 public interface RoleService {

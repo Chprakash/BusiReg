@@ -11,7 +11,7 @@ public class BusinesscontactDTO implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final Long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	private Long contactid;
 	private Long businesssrcID;
 	private Long phoneNo;

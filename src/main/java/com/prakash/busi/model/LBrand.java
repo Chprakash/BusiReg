@@ -18,6 +18,10 @@ import javax.persistence.Version;
 @Table(name = "l_brand", catalog = "business")
 public class LBrand implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private long brandid;
 	private Integer version;
 	private String brandname;

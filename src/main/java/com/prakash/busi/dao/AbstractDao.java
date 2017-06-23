@@ -2,7 +2,6 @@ package com.prakash.busi.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;

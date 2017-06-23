@@ -10,7 +10,6 @@ import com.prakash.busi.dao.RoleDAO;
 import com.prakash.busi.dao.TempClientDAO;
 import com.prakash.busi.dao.UserDAO;
 import com.prakash.busi.dto.TempClientDTO;
-import com.prakash.busi.dto.UserDTO;
 import com.prakash.busi.model.TTempClient;
 import com.prakash.busi.model.TUser;
 import com.prakash.busi.service.TempClientService;

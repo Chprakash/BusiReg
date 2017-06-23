@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -39,9 +40,13 @@ public class StateDAOImpl extends AbstractDao<Long, LState> implements StateDAO{
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<LState> getAllStatesByCountryID(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info("StateDAOImpl.getAllStatesByCountryID(...)");
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq("LCountry.countryid", id));
+		List<LState> stateList = (List<LState>) criteria.list();
+		return stateList;
 	}
 
 }

@@ -24,17 +24,14 @@ public class AddressDAOImpl extends AbstractDao<Long, TAddresses> implements Add
 		return null;
 	}
 	@Override
-	@Transactional
 	public TAddresses saveAddress(TAddresses address) {
 		logger.info("AddressDAOImpl.saveAddress(...)");
 		save(address);
 		return address;
 	}
 	@Override
-	@Transactional
 	public TAddresses updateAddress(TAddresses address) {
 		logger.info("AddressDAOImpl.updateAddress(...)");
-		address.setVersion(0);
 		update(address);
 		return address;
 	}

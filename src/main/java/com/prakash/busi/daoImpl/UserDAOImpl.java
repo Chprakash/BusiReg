@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.prakash.busi.dao.AbstractDao;
 import com.prakash.busi.dao.UserDAO;
-import com.prakash.busi.model.TTempClient;
 import com.prakash.busi.model.TUser;
 
 @Repository

@@ -1,12 +1,20 @@
 package com.prakash.busi.util;
 
 import com.prakash.busi.dto.AddressesDTO;
+import com.prakash.busi.dto.AreaDTO;
 import com.prakash.busi.dto.BusinesscontactDTO;
+import com.prakash.busi.dto.CityDTO;
 import com.prakash.busi.dto.CountryDTO;
 import com.prakash.busi.dto.RoleDTO;
+import com.prakash.busi.dto.StateDTO;
 import com.prakash.busi.dto.TempClientDTO;
+import com.prakash.busi.dto.ZipDTO;
+import com.prakash.busi.model.LArea;
+import com.prakash.busi.model.LCity;
 import com.prakash.busi.model.LCountry;
 import com.prakash.busi.model.LRole;
+import com.prakash.busi.model.LState;
+import com.prakash.busi.model.LZipcode;
 import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.model.TBusinesscontact;
 import com.prakash.busi.model.TTempClient;
@@ -88,5 +96,41 @@ public class ModelToDTO {
 		countryDTO.setCountryname(country.getCountryname());
 		countryDTO.setStatus(country.getStatus());
 		return countryDTO;
+	}
+	
+	public static StateDTO LStateToStateDTO(LState state){
+		StateDTO stateDTO = new StateDTO();
+		stateDTO.setStateId(state.getStateId());
+		stateDTO.setStateName(state.getStateName());
+		stateDTO.setCountryID(state.getLCountry().getCountryid());
+		stateDTO.setStatus(state.getStatus());
+		return stateDTO;
+	}
+	
+	public static CityDTO LCityToCityDTO(LCity city){
+		CityDTO cityDTO = new CityDTO();
+		cityDTO.setCityid(city.getCityid());
+		cityDTO.setCityname(city.getCityname());
+		cityDTO.setStateID(city.getLState().getStateId());
+		cityDTO.setStatus(city.getStatus());
+		return cityDTO;
+	}
+	
+	public static ZipDTO LZipToZipDTO(LZipcode zip){
+		ZipDTO zipDTO = new ZipDTO();
+		zipDTO.setZipid(zip.getZipid());
+		zipDTO.setZipcode(zip.getZipcode());
+		zipDTO.setCityId(zip.getLCity().getCityid());
+		zipDTO.setStatus(zip.getStatus());
+		return zipDTO;
+	}
+
+	public static AreaDTO LAreaToAreaDTO(LArea area){
+		AreaDTO areaDTO = new AreaDTO();
+		areaDTO.setAreaid(area.getAreaid());
+		areaDTO.setAreaname(area.getAreaname());
+		areaDTO.setZipId(area.getLZipcode().getZipid());
+		areaDTO.setStatus(area.getStatus());
+		return areaDTO;
 	}
 }

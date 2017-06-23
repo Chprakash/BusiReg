@@ -23,6 +23,10 @@ import javax.persistence.Version;
 @Table(name = "t_addresses", catalog = "business")
 public class TAddresses implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long addressId;
 	private Integer version;
 	private LCity LCity;

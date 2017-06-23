@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Table(name = "t_temp_client", catalog = "business")
 public class TTempClient implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Integer version;
 	private String firstName;

@@ -17,7 +17,6 @@ import com.prakash.busi.dao.ZipDAO;
 import com.prakash.busi.dto.AddressesDTO;
 import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.service.AddressesService;
-import com.prakash.busi.util.DTOToModel;
 import com.prakash.busi.util.ModelToDTO;
 
 @Component

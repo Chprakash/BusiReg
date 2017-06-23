@@ -22,6 +22,10 @@ import javax.persistence.Version;
 @Table(name = "l_role", catalog = "business", uniqueConstraints = @UniqueConstraint(columnNames = "type"))
 public class LRole implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Integer version;
 	private String type;

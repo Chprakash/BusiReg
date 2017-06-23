@@ -26,6 +26,10 @@ import javax.persistence.Version;
 @Table(name = "l_zipcode", catalog = "business")
 public class LZipcode implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long zipid;
 	private Integer version;
 	private LCity LCity;
@@ -35,6 +39,7 @@ public class LZipcode implements java.io.Serializable {
 	private Date lastupdateddate;
 	private Long createdby;
 	private Long updatedby;
+	private long status;
 	private Set<LArea> LAreas = new HashSet<LArea>(0);
 	private Set<TAddresses> TAddresseses = new HashSet<TAddresses>(0);
 
@@ -164,6 +169,14 @@ public class LZipcode implements java.io.Serializable {
 
 	public void setTAddresseses(Set<TAddresses> TAddresseses) {
 		this.TAddresseses = TAddresseses;
+	}
+
+	public long getStatus() {
+		return status;
+	}
+
+	public void setStatus(long status) {
+		this.status = status;
 	}
 
 }

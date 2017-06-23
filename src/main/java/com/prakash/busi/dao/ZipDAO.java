@@ -8,5 +8,5 @@ public interface ZipDAO {
 	public LZipcode getZipByID(Long id);
 	public LZipcode saveZip(LZipcode area);
 	public List<LZipcode> getAllZip();
-	public List<LZipcode> getAllZipByCityId();
+	public List<LZipcode> getAllZipByCityId(Long id);
 }

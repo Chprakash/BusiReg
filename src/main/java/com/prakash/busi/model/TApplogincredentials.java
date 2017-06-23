@@ -23,6 +23,10 @@ import javax.persistence.Version;
 @Table(name = "t_applogincredentials", catalog = "business")
 public class TApplogincredentials implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long appid;
 	private Integer version;
 	private TBusinesssrc TBusinesssrc;

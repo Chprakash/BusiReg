@@ -10,6 +10,8 @@ public class StateDTO implements java.io.Serializable {
 	private Long stateId;
 	private String stateName;
 	private long status;
+	private Long countryID;
+	
 	public Long getStateId() {
 		return stateId;
 	}
@@ -27,6 +29,12 @@ public class StateDTO implements java.io.Serializable {
 	}
 	public void setStatus(long status) {
 		this.status = status;
+	}
+	public Long getCountryID() {
+		return countryID;
+	}
+	public void setCountryID(Long countryID) {
+		this.countryID = countryID;
 	}
 	
 	

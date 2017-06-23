@@ -1,12 +1,12 @@
 package com.prakash.busi.dto;
 
-import java.util.Date;
-
-import com.prakash.busi.model.LZipcode;
-
 public class AreaDTO implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long areaid;
-	//private LZipcode LZipcode;
+	private Long zipId;
 	private String areaname;
 	private long status;
 	
@@ -27,6 +27,12 @@ public class AreaDTO implements java.io.Serializable {
 	}
 	public void setStatus(long status) {
 		this.status = status;
+	}
+	public Long getZipId() {
+		return zipId;
+	}
+	public void setZipId(Long zipId) {
+		this.zipId = zipId;
 	}
 	
 	

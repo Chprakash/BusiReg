@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -31,6 +32,8 @@ public class ZipDAOImpl extends AbstractDao<Long, LZipcode> implements ZipDAO{
 
 	@Override
 	public LZipcode saveZip(LZipcode zip) {
+		logger.info("ZipDAOImpl.saveZip(...)");
+		update(zip);
 		return zip;
 		
 	}
@@ -46,8 +49,12 @@ public class ZipDAOImpl extends AbstractDao<Long, LZipcode> implements ZipDAO{
 	}
 
 	@Override
-	public List<LZipcode> getAllZipByCityId() {
-		// TODO Auto-generated method stub
-		return null;
+	@SuppressWarnings("unchecked")
+	public List<LZipcode> getAllZipByCityId(Long id) {
+		logger.info("ZipDAOImpl.getAllZipByCityId(...)");
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq("LCity.cityid", id));
+		List<LZipcode> zipList = (List<LZipcode>) criteria.list();
+		return zipList;
 	}
 }

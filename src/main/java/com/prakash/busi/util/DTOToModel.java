@@ -10,8 +10,6 @@ import com.prakash.busi.model.TUser;
 
 public class DTOToModel {
 	
-
-	
 	public static TTempClient TempClientDTOToTempClient(TempClientDTO tempClientDTO){
 		TTempClient tempclient=new TTempClient();
 		tempclient.setId(tempClientDTO.getId());
@@ -77,4 +75,12 @@ public class DTOToModel {
 		return businessContact;
 	}
 	
+	
+/*	public static LZipcode ZipDTOToLZipcode(ZipDTO zipDTO){
+		LZipcode lZipcode= new LZipcode();
+		lZipcode.setZipcode(zipDTO.getZipcode());
+		lZipcode.setCreateddate(new Date());
+		lZipcode.set
+		return lRole;
+	}*/
 }

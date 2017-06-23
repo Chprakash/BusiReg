@@ -26,6 +26,10 @@ import javax.persistence.Version;
 @Table(name = "l_area", catalog = "business")
 public class LArea implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long areaid;
 	private Integer version;
 	private LZipcode LZipcode;

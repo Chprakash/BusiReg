@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.prakash.busi.dao.AbstractDao;
 import com.prakash.busi.dao.RoleDAO;
 import com.prakash.busi.model.LRole;
-import com.prakash.busi.model.TTempClient;
 
 @Repository
 @Transactional

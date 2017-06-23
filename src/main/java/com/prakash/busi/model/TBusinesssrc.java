@@ -26,6 +26,10 @@ import javax.persistence.Version;
 @Table(name = "t_businesssrc", catalog = "business")
 public class TBusinesssrc implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long busiSrcId;
 	private Integer version;
 	private TUser TUser;

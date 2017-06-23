@@ -9,6 +9,9 @@ public class ZipDTO implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long zipid;
 	private Long zipcode;
+	private Long cityId;
+	private long status;
+	
 	public Long getZipid() {
 		return zipid;
 	}
@@ -20,6 +23,18 @@ public class ZipDTO implements java.io.Serializable {
 	}
 	public void setZipcode(Long zipcode) {
 		this.zipcode = zipcode;
+	}
+	public Long getCityId() {
+		return cityId;
+	}
+	public void setCityId(Long cityId) {
+		this.cityId = cityId;
+	}
+	public long getStatus() {
+		return status;
+	}
+	public void setStatus(long status) {
+		this.status = status;
 	}
 	
 	

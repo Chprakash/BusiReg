@@ -27,6 +27,10 @@ import javax.persistence.Version;
 @Table(name = "t_user", catalog = "business", uniqueConstraints = @UniqueConstraint(columnNames = "email_id"))
 public class TUser implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Integer version;
 	private LRole LRole;

@@ -10,6 +10,8 @@ public class CityDTO implements java.io.Serializable {
 	private Long cityid;
 	private String cityname;
 	private long status;
+	private Long stateID;
+	
 	public Long getCityid() {
 		return cityid;
 	}
@@ -27,6 +29,12 @@ public class CityDTO implements java.io.Serializable {
 	}
 	public void setStatus(long status) {
 		this.status = status;
+	}
+	public Long getStateID() {
+		return stateID;
+	}
+	public void setStateID(Long stateID) {
+		this.stateID = stateID;
 	}
 
 	

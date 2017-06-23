@@ -23,6 +23,10 @@ import javax.persistence.Version;
 @Table(name = "t_businesscontact", catalog = "business")
 public class TBusinesscontact implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long contactid;
 	private Integer version;
 	private TBusinesssrc TBusinesssrc;

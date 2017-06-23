@@ -8,5 +8,5 @@ public interface AreaDAO {
 	public LArea getAreaByID(Long id);
 	public LArea saveArea(LArea area);
 	public List<LArea> getAllArea();
-	public List<LArea> getAllAreaByZipId();
+	public List<LArea> getAllAreaByZipId(Long ID);
 }
