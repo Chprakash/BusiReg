@@ -15,7 +15,7 @@ public class BusinesscontactDTO implements java.io.Serializable {
 	private Long contactid;
 	private Long businesssrcID;
 	private Long phoneNo;
-	private Long countryCode;
+	private Long countryId;
 	private Long mobileNo1;
 	private Long mobileNo2;
 	private Long landLineNo;
@@ -51,11 +51,12 @@ public class BusinesscontactDTO implements java.io.Serializable {
 	public void setPhoneNo(Long phoneNo) {
 		this.phoneNo = phoneNo;
 	}
-	public Long getCountryCode() {
-		return countryCode;
+	
+	public Long getCountryId() {
+		return countryId;
 	}
-	public void setCountryCode(Long countryCode) {
-		this.countryCode = countryCode;
+	public void setCountryId(Long countryId) {
+		this.countryId = countryId;
 	}
 	public Long getMobileNo1() {
 		return mobileNo1;

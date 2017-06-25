@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.prakash.busi.dao.AbstractDao;
 import com.prakash.busi.dao.AreaDAO;
 import com.prakash.busi.model.LArea;
-import com.prakash.busi.model.LZipcode;
 
 
 @Repository

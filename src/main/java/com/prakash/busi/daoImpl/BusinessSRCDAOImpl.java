@@ -25,15 +25,17 @@ public class BusinessSRCDAOImpl extends AbstractDao<Long, TBusinesssrc> implemen
 	}
 
 	@Override
-	public TBusinesssrc saveBusinessSrc(TBusinesssrc address) {
-		// TODO Auto-generated method stub
-		return null;
+	public TBusinesssrc saveBusinessSrc(TBusinesssrc tBusinesssrc) {
+		logger.info("BusinessSRCDAOImpl.saveBusinessSrc(...)");
+		save(tBusinesssrc);
+		return tBusinesssrc;
 	}
 
 	@Override
-	public TBusinesssrc updateBusinessSrc(TBusinesssrc address) {
-		// TODO Auto-generated method stub
-		return null;
+	public TBusinesssrc updateBusinessSrc(TBusinesssrc tBusinesssrc) {
+		logger.info("BusinessSRCDAOImpl.updateBusinessSrc(...)");
+		update(tBusinesssrc);
+		return tBusinesssrc;
 	}
 
 	

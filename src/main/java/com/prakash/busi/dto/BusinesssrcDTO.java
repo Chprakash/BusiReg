@@ -3,8 +3,6 @@ package com.prakash.busi.dto;
 // Generated Feb 18, 2017 7:48:04 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,7 +14,7 @@ public class BusinesssrcDTO implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long busiSrcId;
-	private UserDTO user;
+	private Long userId;
 	private Long busiTypeid;
 	private String busiName;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm a z",timezone="IST")
@@ -28,8 +26,6 @@ public class BusinesssrcDTO implements java.io.Serializable {
 	private Long acstatus;
 	private String pancardNo;
 	private String adharCardNo;
-	private Set<BusinesscontactDTO> businesscontacts = new HashSet<BusinesscontactDTO>(
-			0);
 	
 	public Long getBusiSrcId() {
 		return busiSrcId;
@@ -37,11 +33,12 @@ public class BusinesssrcDTO implements java.io.Serializable {
 	public void setBusiSrcId(Long busiSrcId) {
 		this.busiSrcId = busiSrcId;
 	}
-	public UserDTO getUser() {
-		return user;
+	
+	public Long getUserId() {
+		return userId;
 	}
-	public void setUser(UserDTO user) {
-		this.user = user;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 	public Long getBusiTypeid() {
 		return busiTypeid;
@@ -97,10 +94,5 @@ public class BusinesssrcDTO implements java.io.Serializable {
 	public void setAdharCardNo(String adharCardNo) {
 		this.adharCardNo = adharCardNo;
 	}
-	public Set<BusinesscontactDTO> getBusinesscontacts() {
-		return businesscontacts;
-	}
-	public void setBusinesscontacts(Set<BusinesscontactDTO> businesscontacts) {
-		this.businesscontacts = businesscontacts;
-	}
+	
 }

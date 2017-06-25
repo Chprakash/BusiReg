@@ -1,10 +1,16 @@
 package com.prakash.busi.util;
 
+import java.util.Date;
+
+import com.prakash.busi.dto.BusinessTypeDTO;
 import com.prakash.busi.dto.BusinesscontactDTO;
+import com.prakash.busi.dto.BusinesssrcDTO;
 import com.prakash.busi.dto.RoleDTO;
 import com.prakash.busi.dto.TempClientDTO;
+import com.prakash.busi.model.LBusinesstype;
 import com.prakash.busi.model.LRole;
 import com.prakash.busi.model.TBusinesscontact;
+import com.prakash.busi.model.TBusinesssrc;
 import com.prakash.busi.model.TTempClient;
 import com.prakash.busi.model.TUser;
 
@@ -60,7 +66,7 @@ public class DTOToModel {
 		businessContact.setContactPersonFName(businesscontactDTO.getContactPersonFName());
 		businessContact.setContactPersonLName(businesscontactDTO.getContactPersonLName());
 		businessContact.setContactPersonMName(businesscontactDTO.getContactPersonMName());
-		//businessContact.setCountryCode(businesscontactDTO.getCountryCode());
+		
 		businessContact.setCreatedBy(businesscontactDTO.getCreatedBy());
 		businessContact.setCreatedDate(businesscontactDTO.getCreatedDate());
 		businessContact.setEmailId1(businesscontactDTO.getEmailId1());
@@ -73,6 +79,31 @@ public class DTOToModel {
 		businessContact.setUpdatedBy(businesscontactDTO.getUpdatedBy());
 		
 		return businessContact;
+	}
+	
+	public static TBusinesssrc BusinessSrcDTOToTBusinesssrc(BusinesssrcDTO BusinesssrcDTO){
+		TBusinesssrc tBusinesssrc = new TBusinesssrc();
+		tBusinesssrc.setAcstatus(BusinesssrcDTO.getAcstatus());
+		tBusinesssrc.setAdharCardNo(BusinesssrcDTO.getAdharCardNo());
+		tBusinesssrc.setBusiName(BusinesssrcDTO.getBusiName());
+		//tBusinesssrc.setLBusinesstype(LBusinesstype);(BusinesssrcDTO.getLBusinesstype().getBusitypeid());
+		tBusinesssrc.setCreatedby(BusinesssrcDTO.getCreatedby());
+		tBusinesssrc.setUpdatedby(BusinesssrcDTO.getUpdatedby());
+		tBusinesssrc.setCreateddate(BusinesssrcDTO.getCreateddate());
+		tBusinesssrc.setLastupdateddate(BusinesssrcDTO.getLastupdateddate());
+		tBusinesssrc.setPancardNo(BusinesssrcDTO.getPancardNo());
+		//tBusinesssrc.setUserId(BusinesssrcDTO.getTUser().getId());
+		return tBusinesssrc;
+	}
+	
+	public static LBusinesstype businesstypeDTOToLBusinesstype(BusinessTypeDTO businessTypeDTO){
+		LBusinesstype lBusinesstype= new LBusinesstype();
+		lBusinesstype.setBusiType(businessTypeDTO.getBusiType());
+		lBusinesstype.setBusitypeid(businessTypeDTO.getBusitypeid());
+		lBusinesstype.setDescription(businessTypeDTO.getDescription());
+		lBusinesstype.setCreateddate(new Date());
+		lBusinesstype.setLastupdateddate(new Date());
+		return lBusinesstype;
 	}
 	
 	

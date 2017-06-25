@@ -1,5 +1,10 @@
 package com.prakash.busi.daoImpl;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -34,8 +39,18 @@ public class BusinessContactDAOImpl extends AbstractDao<Long, TBusinesscontact> 
 
 	@Override
 	public TBusinesscontact updateContact(TBusinesscontact TBusinesscontact) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info("BusinessContactDAOImpl.updateContact(...)");
+		update(TBusinesscontact);
+		return TBusinesscontact;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TBusinesscontact> getContactByBusinessSRCID(Long id) {
+		logger.info("BusinessContactDAOImpl.getContactByBusinessSRCID(...)");
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq("TBusinesssrc.busiSrcId", id));
+		List<TBusinesscontact> businesscontactList = (List<TBusinesscontact>) criteria.list();
+		return businesscontactList;
+	}
 }

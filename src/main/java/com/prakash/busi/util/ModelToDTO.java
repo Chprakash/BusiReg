@@ -2,7 +2,9 @@ package com.prakash.busi.util;
 
 import com.prakash.busi.dto.AddressesDTO;
 import com.prakash.busi.dto.AreaDTO;
+import com.prakash.busi.dto.BusinessTypeDTO;
 import com.prakash.busi.dto.BusinesscontactDTO;
+import com.prakash.busi.dto.BusinesssrcDTO;
 import com.prakash.busi.dto.CityDTO;
 import com.prakash.busi.dto.CountryDTO;
 import com.prakash.busi.dto.RoleDTO;
@@ -10,6 +12,7 @@ import com.prakash.busi.dto.StateDTO;
 import com.prakash.busi.dto.TempClientDTO;
 import com.prakash.busi.dto.ZipDTO;
 import com.prakash.busi.model.LArea;
+import com.prakash.busi.model.LBusinesstype;
 import com.prakash.busi.model.LCity;
 import com.prakash.busi.model.LCountry;
 import com.prakash.busi.model.LRole;
@@ -17,6 +20,7 @@ import com.prakash.busi.model.LState;
 import com.prakash.busi.model.LZipcode;
 import com.prakash.busi.model.TAddresses;
 import com.prakash.busi.model.TBusinesscontact;
+import com.prakash.busi.model.TBusinesssrc;
 import com.prakash.busi.model.TTempClient;
 
 public class ModelToDTO {
@@ -74,7 +78,7 @@ public class ModelToDTO {
 		businesscontactDTO.setContactPersonFName(businessContact.getContactPersonFName());
 		businesscontactDTO.setContactPersonLName(businessContact.getContactPersonLName());
 		businesscontactDTO.setContactPersonMName(businessContact.getContactPersonMName());
-		businesscontactDTO.setCountryCode(businessContact.getLCountry().getCountryCode());
+		businesscontactDTO.setCountryId(businessContact.getLCountry().getCountryid());
 		businesscontactDTO.setCreatedBy(businessContact.getCreatedBy());
 		businesscontactDTO.setUpdatedBy(businessContact.getUpdatedBy());
 		businesscontactDTO.setCreatedDate(businessContact.getCreatedDate());
@@ -82,12 +86,28 @@ public class ModelToDTO {
 		businesscontactDTO.setEmailId2(businessContact.getEmailId2());
 		businesscontactDTO.setLandLineNo(businessContact.getLandLineNo());
 		businesscontactDTO.setLastUpdateddate(businessContact.getLastUpdateddate());
-		businesscontactDTO.setBusinesssrcID(businessContact.getContactid());
+		businesscontactDTO.setBusinesssrcID(businessContact.getTBusinesssrc().getBusiSrcId());
 		businesscontactDTO.setPhoneNo(businessContact.getPhoneNo());
 		businesscontactDTO.setMobileNo1(businessContact.getMobileNo1());
 		businesscontactDTO.setMobileNo2(businessContact.getMobileNo2());
 		
 		return businesscontactDTO;
+	}
+	
+	public static BusinesssrcDTO TBusineBusinessSrcToBusinesssrcDTO(TBusinesssrc tBusinesssrc){
+		BusinesssrcDTO businesssrcDTO = new BusinesssrcDTO();
+		businesssrcDTO.setAcstatus(tBusinesssrc.getAcstatus());
+		businesssrcDTO.setAdharCardNo(tBusinesssrc.getAdharCardNo());
+		businesssrcDTO.setBusiName(tBusinesssrc.getBusiName());
+		businesssrcDTO.setBusiSrcId(tBusinesssrc.getBusiSrcId());
+		businesssrcDTO.setBusiTypeid(tBusinesssrc.getLBusinesstype().getBusitypeid());
+		businesssrcDTO.setCreatedby(tBusinesssrc.getCreatedby());
+		businesssrcDTO.setUpdatedby(tBusinesssrc.getUpdatedby());
+		businesssrcDTO.setCreateddate(tBusinesssrc.getCreateddate());
+		businesssrcDTO.setLastupdateddate(tBusinesssrc.getLastupdateddate());
+		businesssrcDTO.setPancardNo(tBusinesssrc.getPancardNo());
+		businesssrcDTO.setUserId(tBusinesssrc.getTUser().getId());
+		return businesssrcDTO;
 	}
 	
 	public static CountryDTO LCountryToCountryDTO(LCountry country){
@@ -132,5 +152,13 @@ public class ModelToDTO {
 		areaDTO.setZipId(area.getLZipcode().getZipid());
 		areaDTO.setStatus(area.getStatus());
 		return areaDTO;
+	}
+	
+	public static BusinessTypeDTO lBusinessTypeToBusinessTypeDTO(LBusinesstype lBusinesstype){
+		BusinessTypeDTO businessTypeDTO = new BusinessTypeDTO();
+		businessTypeDTO.setBusiType(lBusinesstype.getBusiType());
+		businessTypeDTO.setBusitypeid(lBusinesstype.getBusitypeid());
+		businessTypeDTO.setDescription(lBusinesstype.getDescription());
+		return businessTypeDTO;
 	}
 }
